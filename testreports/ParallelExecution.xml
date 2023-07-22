@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RegistrationAndLogin" parallel="tests" thread-count="2" >
+
+	<listeners>
+		<listener class-name="com.nopcommerce.listeners.MyListerners" />
+	</listeners>
+
+	<test name="RegisterAndLoginTestWithRandomEmails" preserve-order="true" >
+
+	<classes>
+      <class name="com.nopcommerce.testcases.RegisterTest">
+      <!--<methods>
+      <include name = "verifyRegisterwithValidDataUsingRamdomEmail"/>
+      <include name = "verifyloginwithValidDataUsingJSONData"/>
+      </methods>-->
+      </class>
+      
+      <!--<class name="com.nopcommerce.testcases.LoginTest">
+      <methods>
+      	<include name = "verifyloginwithValidDataUsingRandomEmails"/>
+      	<include name = "verifyloginwithValidDataUsingJSONData"/>
+      </methods>
+      </class>-->
+	</classes>
+   </test> <!-- Test -->
+      
+ 	<test name="Search">
+      <classes>
+      	<class name="com.nopcommerce.testcases.SearchProductTest"/>
+      </classes>
+	</test><!-- Test -->
+</suite> <!-- Suite -->

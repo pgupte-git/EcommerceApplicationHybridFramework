@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RegistrationAndLogin">
+
+	<listeners>
+		<listener class-name="com.nopcommerce.listeners.MyListerners" />
+	</listeners>
+
+<test name="RegisterAndLoginTestWithRandomEmails">
+
+<classes>
+      <class name="com.nopcommerce.testcases.RegisterTest">
+      <methods>
+      <include name = "verifyRegisterwithValidDataUsingRamdomEmail"/>
+      </methods>
+      </class>
+      
+      <class name="com.nopcommerce.testcases.LoginTest">
+      <methods>
+      <include name = "verifyloginwithValidDataUsingRandomEmails"/>
+      </methods>
+      </class>
+      
+      <class name="com.nopcommerce.testcases.SearchProductTest">
+      <methods>
+      <include name = "verify_search_functionality"/>
+      </methods>
+      </class>
+      
+</classes>
+
+</test> <!-- Test -->
+</suite> <!-- Suite -->

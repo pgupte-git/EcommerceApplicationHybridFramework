@@ -1,0 +1,7 @@
+2023-07-15 20:57:36,891 [main] INFO  com.nopcommerce.testcases.RegisterTest - Click on the Login
+2023-07-15 20:57:37,011 [main] INFO  com.nopcommerce.testcases.RegisterTest - add username
+2023-07-15 20:57:37,122 [main] INFO  com.nopcommerce.testcases.RegisterTest - Added Password
+2023-07-15 20:57:37,977 [main] INFO  com.nopcommerce.testcases.RegisterTest - Clicked on the Login button
+2023-07-15 20:57:38,018 [main] INFO  com.nopcommerce.testcases.RegisterTest - My Account Link is verified
+2023-07-15 20:57:39,448 [main] INFO  com.nopcommerce.testcases.RegisterTest - Clicked on the Logout Link
+2023-07-15 20:57:39,476 [main] INFO  com.nopcommerce.testcases.RegisterTest - User is logout

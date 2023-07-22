@@ -1,0 +1,21 @@
+[ 
+{ 
+	"name": "Pratik",
+	"lname": "Gupte",
+	"day": "5",
+	"month": "March",
+	"year": "1993",
+	"email":"pgupte+test123@fusionspan.com",
+	"password":"Password@1"
+},
+
+{ 
+	"name": "Pratik",
+	"lname": "Smith",
+	"day": "5",
+	"month": "March",
+	"year": "1996",
+	"email":"pgupte+smith145@fusionspan.com",
+	"password":"Password@1"
+}
+]
