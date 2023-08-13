@@ -1,0 +1,20 @@
+[ 
+	{ 
+		"firstname":"pratik",
+		"lastname":"Guptey",
+		"email":"pgupte@testmail.com",
+		"country":"India",
+		"city":"Nagpur",
+		"address":"plot no 8, Bajaj Appt, Nagpur",
+		"postalcode":"441002",
+		"phone":"9966332211",
+		
+		"cardtype": "Visa",
+		"cardholdername":"Prateek Guptey",
+		"cardnumber":"4111111111111111",
+		"month":"02",
+		"year":"2028",
+		"code": "555"
+
+	}
+]

@@ -27,7 +27,7 @@ public class RegisterTest extends BaseTest2{
 		
 		private String randomEmail;
 		
-		@Test(priority=1,groups="registration")
+		@Test(priority=1,groups= {"regression","smoke","memberuser"})
 		public void verifyRegisterwithValidDataUsingRamdomEmail(ITestContext context)
 		{
 			home = new HomePage(getDriver());
@@ -36,19 +36,27 @@ public class RegisterTest extends BaseTest2{
 			
 			//click on register link on homepage
 			register = home.clickonregisterlink();
-			
+			logger.info("Click on the registerlink");
 			
 			register.selectmalegenderradiobutton();
+			logger.info("Select male radio button");
 			
 			register.addfirstnameandlastname(dataprop.getProperty("firstname"),dataprop.getProperty("lastname"));
+			logger.info("Firstname and lastname entered");
 			register.selectdateofbirth(dataprop.getProperty("day"),dataprop.getProperty("month"),dataprop.getProperty("year"));
+			logger.info("Enter date of birth");
+			
 			register.addEmailaddress(randomEmail);
+			logger.info("added random email");
 			
 			// Store the registered email in the TestNG context
 	        context.setAttribute("registeredEmail", randomEmail);
 	        
 			register.addpassword(dataprop.getProperty("password"));
+			logger.info("add password");
+			
 			register.clickonregisterbutton();
+			logger.info("Click on register button");
 			
 			Assert.assertTrue(register.validateRegisterSuccessMessage(),"Register success message is not visible");
 			
@@ -59,7 +67,7 @@ public class RegisterTest extends BaseTest2{
 			
 		}
 		
-		@Test(priority=2, dataProvider="getData")
+		@Test(priority=2, groups= {"regression","smoke"}, dataProvider="getData")
 		public void VerifyRegisterwithValidDataUsingJSONData(HashMap<String,String>input)
 		{
 			home = new HomePage(getDriver());

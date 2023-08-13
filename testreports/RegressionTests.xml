@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RegressionTests">
+
+	<groups>
+		<run>
+			<include name="regression"/>
+		</run>
+	</groups>
+	
+	<listeners>
+		<listener class-name="com.nopcommerce.listeners.MyListerners" />
+	</listeners>
+	
+<test name="Regression_Testing">
+<classes>
+		<class name="com.nopcommerce.testcases.RegisterTest"/>
+      	<class name="com.nopcommerce.testcases.LoginTest"/>
+      	<class name="com.nopcommerce.testcases.MyAccounttest"/>
+      	<class name="com.nopcommerce.testcases.ProductPurchaseTest"/>
+</classes>
+</test> <!-- Test -->
+</suite> <!-- Suite -->

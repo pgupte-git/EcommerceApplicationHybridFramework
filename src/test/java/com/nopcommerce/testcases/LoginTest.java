@@ -15,6 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.nopcommerce.pageobjects.HomePage;
 import com.nopcommerce.pageobjects.LoginPage;
 import com.nopcommerce.pageobjects.RegisterPage;
+import com.nopcommerce.testutility.BaseTest;
 //import com.nopcommerce.testutility.BaseTest;
 import com.nopcommerce.testutility.BaseTest2;
 import com.nopcommerce.utilities.Utility;
@@ -43,7 +44,7 @@ public class LoginTest extends BaseTest2{
 		randomEmail = (String) context.getAttribute("registeredEmail");
 	}*/
 	
-	@Test(priority=1)
+	@Test(priority=1, groups= {"regression","smoke","sanity","memberuser"})
 	public void verifyloginwithValidDataUsingRandomEmails(ITestContext context)
 	{
 		home = new HomePage(getDriver());
@@ -67,6 +68,11 @@ public class LoginTest extends BaseTest2{
 		
 		System.out.println(home.getmyaccountlink());
 		
+	}
+	
+	@Test(priority=2, groups={"smoke"}, dependsOnMethods={"verifyloginwithValidDataUsingRandomEmails"})
+	public void verify_logout()
+	{
 		home.clickonlogout();
 		logger.info("Clicked on the Logout Link");
 		
@@ -76,7 +82,8 @@ public class LoginTest extends BaseTest2{
 		//System.out.println("User is logout");
 	}
 	
-	@Test(priority=2, dataProvider = "getData")
+	
+	@Test(priority=3, groups= {"smoke"}, dataProvider = "getData")
 	public void verifyloginwithValidDataUsingJSONData(HashMap<String,String>input)
 	{
 		home = new HomePage(getDriver());
@@ -98,7 +105,7 @@ public class LoginTest extends BaseTest2{
 		System.out.println("User is logout");
 	}
 	
-	@Test(priority=3, dataProvider="nonmemberdata")
+	@Test(priority=4, groups= {"errorvalidation"}, dataProvider="nonmemberdata")
 	public void verifyloginWithNonmember(String email, String password)
 	{
 		home = new HomePage(getDriver());
@@ -112,7 +119,7 @@ public class LoginTest extends BaseTest2{
 		Assert.assertEquals(login.getloginerrormsg(), message, "Error message is not matched");
 	}
 	
-	@Test(priority=4, dataProvider="supplyinvaliddata")
+	@Test(priority=5, groups= {"errorvalidation"},dataProvider="supplyinvaliddata")
 	public void verifyLoginWithInvalidEmailandPassword(String email, String password)
 	{
 		home = new HomePage(getDriver());
@@ -126,7 +133,7 @@ public class LoginTest extends BaseTest2{
 		Assert.assertEquals(login.getloginerrormsg(), message, "Error message is not matched");
 	}
 	
-	@Test(priority=5, dataProvider="supplyinvaliddata")
+	@Test(priority=6, groups= {"errorvalidation"},dataProvider="supplyinvaliddata")
 	public void verifyLoginWithvalidEmailandInvalidPassword(String email, String password)
 	{
 		login.enterusername(email);

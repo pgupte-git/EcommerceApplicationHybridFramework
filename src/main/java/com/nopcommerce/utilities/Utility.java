@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.FileHandler;
@@ -15,13 +16,17 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utility {
 	
@@ -166,6 +171,63 @@ public class Utility {
 		js.executeScript("arguments[0].style.border='3px solid red'", locator);
 	}
 	
+	public static void scrolldownByVisibleElement(WebDriver driver, WebElement locator) 
+	{
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();",locator);
+    }
 	
+	// Perform Action method for mouse hover and click on element
+	public static void perform_mousehover(WebDriver driver, WebElement primarymenulocator, WebElement menuitemlocator)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(primarymenulocator).moveToElement(menuitemlocator).click().perform();
+	}
+	
+	public static void perform_mousehover_Onsingle_element(WebDriver driver, WebElement locator)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(locator).click().perform();
+	}
+	
+/////////## Method for explicitly Wait ## /////////////////////////////
+	
+	public static WebElement WaitForElementToVisible(WebDriver driver, By locator, int time)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return driver.findElement(locator);
+	}
+	
+	public static WebElement WaitForElementToPresnet(WebDriver driver, By locator, int time)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		return driver.findElement(locator);
+	}
+	
+	public static WebElement WaitForElementToDisappear(WebDriver driver, By locator, int time)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		return driver.findElement(locator);
+	}
+	
+	public boolean WaitForTexttoAppear(WebElement locator, String value)
+	{
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.textToBePresentInElement(locator,value));
+	}
+	
+	public static WebElement WaitForElementToDisplay(WebDriver driver, WebElement locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.visibilityOf(locator));
+	}
+	
+	public static void waitfor2sec() throws InterruptedException
+	{
+		Thread.sleep(2000);
+	}
 
 }

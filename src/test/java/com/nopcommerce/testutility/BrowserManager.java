@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
@@ -35,20 +36,21 @@ public class BrowserManager extends config {
 		if(browsername.contains("chrome"))
 		{
 			//driver = WebDriverManager.chromedriver().create();
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver();
 			System.out.println("Chrome browser is selected");
 		}
 		
 		else if(browsername.contains("firefox"))
 		{
 			//driver = WebDriverManager.firefoxdriver().create();
-			driver = new FirefoxDriver(option);
+			driver = new FirefoxDriver();
 			System.out.println("Firefox browser is selected");
 		}
 		
 		else if(browsername.contains("edge"))
 		{
-			driver = WebDriverManager.edgedriver().create();
+			//driver = WebDriverManager.edgedriver().create();
+			driver = new EdgeDriver();
 			System.out.println("Edge browser is selected");
 		}
 		

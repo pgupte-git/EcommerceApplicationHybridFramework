@@ -29,6 +29,11 @@ public class LoginPage extends Utility{
 	@FindBy (xpath="//div[@class='message-error validation-summary-errors']/ul/li") WebElement loginerrormsg;
 	@FindBy (xpath="//span[@class='field-validation-error']") WebElement blankemailmsg;
 	
+	@FindBy (xpath="//div[@class='new-wrapper checkout-as-guest-or-register-block']/div[@class='title']")
+	WebElement checkoutguestusertitle;
+	@FindBy (xpath="//button[@class='button-1 checkout-as-guest-button']") WebElement checkoutbuttonguestuser;
+	
+	
 	
 	
 	// Methods to perform action on login page
@@ -72,6 +77,16 @@ public class LoginPage extends Utility{
 		return blankemailmsg.getText();
 	}
 	
+	public String validate_checkoutpage_as_guestuser_page_heading()
+	{
+		return checkoutguestusertitle.getText();
+	}
+	
+	public CheckoutPage click_on_checkout_guest_user_button()
+	{
+		checkoutbuttonguestuser.click();
+		return new CheckoutPage(driver);
+	}
 	
 
 }

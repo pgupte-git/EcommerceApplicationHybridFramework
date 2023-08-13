@@ -11,7 +11,7 @@ import com.nopcommerce.pageobjects.SearchPage;
 import com.nopcommerce.testutility.BaseTest;
 import com.nopcommerce.testutility.BaseTest2;
 
-public class SearchProductTest extends BaseTest2{
+public class SearchProductTest extends BaseTest{
 	
 	HomePage home;
 	SearchPage searchp;
@@ -22,12 +22,13 @@ public class SearchProductTest extends BaseTest2{
 		super();
 	}
 	
-	@Test(priority=1,groups="search")
+	@Test(priority=1, groups= {"regression","smoke"})
 	public void verify_search_functionality() throws InterruptedException, IOException
 	{
 		//home = new HomePage(driver);
 		
-		searchp = new SearchPage(getDriver());
+		//searchp = new SearchPage(getDriver());
+		searchp = new SearchPage(driver);
 		
 		searchp.clickonSearchTextInput();
 		Thread.sleep(2000);

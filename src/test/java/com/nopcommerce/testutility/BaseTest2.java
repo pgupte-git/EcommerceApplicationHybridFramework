@@ -12,7 +12,11 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -63,7 +67,7 @@ public class BaseTest2 extends config{
 		
 	}
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun=true)
 	public void setup()
 	{
 		//Assign the WebDriver instance from the browserManager class and assigned to base test local driver
@@ -90,8 +94,9 @@ public class BaseTest2 extends config{
         return threadLocalDriver.get();
     }
     
-    @AfterTest
-    public void tearDown(){
+    @AfterTest(alwaysRun=true)
+    public void tearDown()
+    {
         
     	getDriver().quit();
     	System.out.println("Parent browser is closed");

@@ -27,6 +27,13 @@ public class HomePage extends Utility{
 		
 		@FindBy (xpath="//a[@class='ico-logout']") WebElement logoutlink;
 		
+		//Select product from the menus
+		@FindBy (xpath="//ul[@class='top-menu notmobile']/li/a[contains(text(),'Apparel')]") 
+		WebElement Apparel_Option;
+		
+		@FindBy (xpath="//ul[@class='top-menu notmobile']//a[normalize-space()='Shoes']") 
+		WebElement ShoesMenuOption;
+		
 		//Methods to used a Action elements in testcases
 		
 		public String gethomepagetitle()
@@ -64,6 +71,18 @@ public class HomePage extends Utility{
 		{
 			registerlink.click();
 			return new RegisterPage(driver);
+		}
+		
+		public ProductListingPage gotoshoesproductlistpage()
+		{
+			perform_mousehover(driver, Apparel_Option, ShoesMenuOption);
+			return new ProductListingPage(driver);
+		}
+		
+		public MyAccountPage click_on_my_account()
+		{
+			myaccountlink.click();
+			return new MyAccountPage(driver);
 		}
 
 }

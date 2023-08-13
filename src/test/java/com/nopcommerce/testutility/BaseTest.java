@@ -68,7 +68,7 @@ public class BaseTest extends config{
 	}
 	
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun=true)
 	public void initializebrowser()
 	{
 		// If browser is not selected then chrome will be launched by default
@@ -98,7 +98,7 @@ public class BaseTest extends config{
 			System.out.println("No browser is available, so chrome will is selected by default");
 		}
 		
-		driver.get(url);
+		
 		
 		System.out.println("---------- Driver Initiated ---------- ");
 		System.out.println("Running on Thread = " + Thread.currentThread().getName());
@@ -107,6 +107,8 @@ public class BaseTest extends config{
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Utility.page_load_time));
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+		
+		driver.get(url);
 		
 		
 		

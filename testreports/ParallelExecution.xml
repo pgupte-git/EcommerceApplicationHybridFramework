@@ -3,6 +3,12 @@
 
 <suite name="RegistrationAndLogin" parallel="tests" thread-count="2" >
 
+	<groups>
+		<run>
+			<include name="smoke"/>
+		</run>
+	</groups>
+	
 	<listeners>
 		<listener class-name="com.nopcommerce.listeners.MyListerners" />
 	</listeners>
@@ -10,23 +16,11 @@
 	<test name="RegisterAndLoginTestWithRandomEmails" preserve-order="true" >
 
 	<classes>
-      <class name="com.nopcommerce.testcases.RegisterTest">
-      <!--<methods>
-      <include name = "verifyRegisterwithValidDataUsingRamdomEmail"/>
-      <include name = "verifyloginwithValidDataUsingJSONData"/>
-      </methods>-->
-      </class>
-      
-      <!--<class name="com.nopcommerce.testcases.LoginTest">
-      <methods>
-      	<include name = "verifyloginwithValidDataUsingRandomEmails"/>
-      	<include name = "verifyloginwithValidDataUsingJSONData"/>
-      </methods>
-      </class>-->
+      <class name="com.nopcommerce.testcases.RegisterTest"/>
 	</classes>
    </test> <!-- Test -->
       
- 	<test name="Search">
+ 	<test name="SearchProduct">
       <classes>
       	<class name="com.nopcommerce.testcases.SearchProductTest"/>
       </classes>
